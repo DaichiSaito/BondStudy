@@ -16,6 +16,7 @@ class ConditionTableViewCell: UITableViewCell {
     @IBOutlet weak var color1: UIView!
     @IBOutlet weak var itemName: UILabel!
     
+    var myCondition: Condition?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,6 +36,7 @@ class ConditionTableViewCell: UITableViewCell {
     }
     
     func setCell(condition: Condition, indexPath: IndexPath) {
+        myCondition = condition
         // ブランド
         var tmpStr = ""
         for brand in condition.brands {
@@ -59,7 +61,8 @@ class ConditionTableViewCell: UITableViewCell {
         }
         
         // アイテム名
-        itemName.text = CodeDef.itemsArray[indexPath.row]
+//        itemName.text = CodeDef.itemsArray[indexPath.row]
+        itemName.text = condition.key
         
     }
     
