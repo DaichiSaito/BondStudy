@@ -23,11 +23,9 @@ class TallTableViewCell: UITableViewCell {
     }
     
     func setCells(at indexpath: IndexPath) {
-        if let tallCondition = (ModelConditions.sharedInstance.get()["model"] as? [String:Any])?["tall"] as? [String] {
-            tallLabel.text = "\(tallCondition[0])〜\(tallCondition[1])cm"
-        } else {
-            tallLabel.text = ""
-        }
+        let tallCondition = (ModelConditions.sharedInstance.get()["model"] as? [String:Any])?["tall"] as? String
+        
+        tallLabel.text = CodeDef.tallPickerDataSource[Int(tallCondition!)!][1]
     }
     
     private var _inputView: UIView?

@@ -23,11 +23,9 @@ class AgeTableViewCell: UITableViewCell {
     }
 
     func setCells(at indexpath: IndexPath) {
-        if let ageCondition = (ModelConditions.sharedInstance.get()["model"] as? [String:Any])?["age"] as? [String] {
-            ageLabel.text = "\(ageCondition[0])〜\(ageCondition[1])歳"
-        } else {
-            ageLabel.text = ""
-        }
+        let ageCondition = (ModelConditions.sharedInstance.get()["model"] as? [String:Any])?["age"] as? String
+
+        ageLabel.text = CodeDef.agePickerDataSource[Int(ageCondition!)!][1]
     }
     
     private var _inputView: UIView?

@@ -31,7 +31,7 @@ class SexTableViewCell: UITableViewCell {
             case "2":
                 sex = "WOMEN"
             default:
-                sex = "バグです"
+                sex = "指定なし"
             }
             sexLabel.text = sex!
         } else {

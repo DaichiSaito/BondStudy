@@ -12,7 +12,7 @@ class ModelConditions : ModelBase {
     // 雛形
     static let value: [String: Any] = [
         "item":[
-            "season":[],
+            "season":[false,false,false,false],
             "tops": [
                 "colors":[],
                 "brands":[],
@@ -46,8 +46,8 @@ class ModelConditions : ModelBase {
         ],
         "model": [
             "sex":"",
-            "tall":[],
-            "age":[]
+            "tall":"0",
+            "age":"0"
         ],
         "tag":[]
     ]

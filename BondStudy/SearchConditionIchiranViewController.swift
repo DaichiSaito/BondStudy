@@ -10,9 +10,13 @@ import UIKit
 
 class SearchConditionIchiranViewController: UIViewController {
     
-    var selectedAge: [String] = []
-    var selectedTall: [String] = []
+    var selectedAge:String = "0"
+//    var selectedTall: [String] = []
+    var selectedTall:String = "0"
     
+    @IBAction func resetButton(_ sender: Any) {
+        ModelConditions.sharedInstance.set(condition: ModelConditions.value)
+    }
     @IBAction func decideButton(_ sender: Any) {
         let userDefaults = UserDefaults.standard
         
@@ -72,10 +76,6 @@ class SearchConditionIchiranViewController: UIViewController {
     func onClick(_ sender: UIBarButtonItem) {
         switch sender.tag {
         case 1:
-            if selectedTall == [] {
-                selectedTall = ["151","160"]
-            }
-            print("\(selectedTall[0])〜\(selectedTall[1])")
             
             var model = ModelConditions.sharedInstance.get()
             var modelModel = model["model"] as? [String:Any]
@@ -83,16 +83,15 @@ class SearchConditionIchiranViewController: UIViewController {
             model.updateValue(modelModel, forKey: "model")
             ModelConditions.sharedInstance.set(condition: model)
             
+            
         case 2:
-            if selectedAge == [] {
-                selectedAge = ["0","10"]
-            }
-            print("\(selectedAge[0])〜\(selectedAge[1])")
+            
             var model = ModelConditions.sharedInstance.get()
             var modelModel = model["model"] as? [String:Any]
             modelModel?.updateValue(selectedAge, forKey: "age")
             model.updateValue(modelModel, forKey: "model")
             ModelConditions.sharedInstance.set(condition: model)
+            
         case 3:
             break
         default:break
@@ -238,6 +237,7 @@ extension SearchConditionIchiranViewController: UITableViewDataSource {
             switch indexPath.row {
             case 0:
                 let cell = table.dequeueReusableCell(withIdentifier: "seasonCell", for: indexPath) as! SeasonTableViewCell
+                cell.setCells(indexPath: indexPath)
                 return cell
             case 1,2,3,4,5,6,7:
                 let cell = table.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemTableViewCell
@@ -318,28 +318,22 @@ extension SearchConditionIchiranViewController: UIPickerViewDelegate,UIToolbarDe
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         print("pickerView")
         if (pickerView.tag == 1) {
-            selectedTall = CodeDef.tallPickerDataSource[row]
+            selectedTall = CodeDef.tallPickerDataSource[row][0]
         } else if (pickerView.tag == 2) {
-            selectedAge = CodeDef.agePickerDataSource[row]
+            selectedAge = CodeDef.agePickerDataSource[row][0]
         }
     }
     
     /* プルダウンの要素 */
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
-        
-        //        if (component == 1) {
-        //            return "〜"
-        //        }
+
         if (pickerView.tag == 1) {
-            let tall = CodeDef.tallPickerDataSource[row]
-            return "\(tall[0])〜\(tall[1])cm"
             
-            
-            
+            return CodeDef.tallPickerDataSource[row][1]
             
         } else if (pickerView.tag == 2) {
-            let age = CodeDef.agePickerDataSource[row]
-            return "\(age[0])〜\(age[1])歳"
+            
+            return CodeDef.agePickerDataSource[row][1]
             
         } else {
             return "何らかのエラーにより取得できてません。"

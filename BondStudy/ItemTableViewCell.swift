@@ -10,6 +10,8 @@ import UIKit
 
 class ItemTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var noSelectLabel: UILabel!
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var selectedBrandNames: UILabel!
     @IBOutlet weak var colorView1: UIView!
@@ -37,9 +39,11 @@ class ItemTableViewCell: UITableViewCell {
             selectedColor.isHidden = true
         }
         
+        var somethingSelected: Bool = false
         if let itemTopConditionsColor = ((ModelConditions.sharedInstance.get()["item"] as? [String:Any])?[key] as? [String:Any])?["colors"] as? [Int] {
             //            var index: Int = 0
             for (index, itemTopCondition) in itemTopConditionsColor.enumerated() {
+                somethingSelected = true
                 if index == 3 {
 //                    overLabelForColor.isHidden = false
                     break
@@ -55,8 +59,10 @@ class ItemTableViewCell: UITableViewCell {
         
         if let itemTopConditionsBrand = ((ModelConditions.sharedInstance.get()["item"] as? [String:Any])?[key] as? [String:Any])?["brands"] as? [String] {
             if itemTopConditionsBrand.count == 0 {
-                self.selectedBrandNames.text = nil
+                self.selectedBrandNames.text = ""
+                
             } else {
+                somethingSelected = true
                 var tmpText: String = ""
                 for brandText in itemTopConditionsBrand {
                     if let brandName = brandText as String! {
@@ -67,6 +73,12 @@ class ItemTableViewCell: UITableViewCell {
                 let subStr = tmpText.substring(to:currentIndex)
                 self.selectedBrandNames.text = subStr
             }
+        }
+        
+        if somethingSelected {
+            noSelectLabel.text = ""
+        } else {
+            noSelectLabel.text = "指定なし"
         }
     }
 
