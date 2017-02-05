@@ -73,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="kN1-cQ-A1R" kind="relationship" relationship="rootViewController" id="zkB-0c-htC"/>
+                        <segue destination="oae-Yl-Czi" kind="relationship" relationship="rootViewController" id="30v-gU-XRO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5M-ka-rCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -379,7 +379,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uew-KT-vGC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829.60000000000002" y="866.71664167916049"/>
+            <point key="canvasLocation" x="1697" y="867"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TzY-DP-WUd">
+            <objects>
+                <viewController id="oae-Yl-Czi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WNf-8a-XMT"/>
+                        <viewControllerLayoutGuide type="bottom" id="avT-no-gZE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="obL-Ug-lX2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hv1-vv-jH2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uk0-dj-teh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="867"/>
         </scene>
         <!--Condition Ichiran View Controller-->
         <scene sceneID="jMc-dR-g8o">

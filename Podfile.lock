@@ -1,0 +1,40 @@
+PODS:
+  - Alamofire (4.2.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
+  - Bond (6.0.0-beta.2):
+    - Diff (~> 0.4)
+    - ReactiveKit (~> 3.2)
+  - Diff (0.5.0)
+  - NCMB (2.3.3)
+  - ReactiveKit (3.2.1)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage
+  - Bond (~> 6.0-beta)
+  - NCMB (from `https://github.com/NIFTYCloud-mbaas/ncmb_ios.git`)
+  - SwiftyJSON
+
+EXTERNAL SOURCES:
+  NCMB:
+    :git: https://github.com/NIFTYCloud-mbaas/ncmb_ios.git
+
+CHECKOUT OPTIONS:
+  NCMB:
+    :commit: ad3200666dbf6040eb9cfa5bd5f5a8f74d68f558
+    :git: https://github.com/NIFTYCloud-mbaas/ncmb_ios.git
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  Bond: 8a75c63424669cf017dfd4d1e6aff1375e12669f
+  Diff: eceb93a3adf508574ba9b8560da185ace83de055
+  NCMB: 33829337aeb2e91a0fc1c771eeb77b642f7f6589
+  ReactiveKit: 724c58768791b86a4b149adae587f34cdc3902d7
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 62c7d0d891dfcc51f417819df72bdcfa6d2bfe34
+
+COCOAPODS: 1.2.0.beta.3
